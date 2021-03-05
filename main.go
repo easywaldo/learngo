@@ -3,7 +3,15 @@ package main
 import (
 	"fmt"
 	"math/cmplx"
+	"strings"
 )
+
+const c int64 = 10
+const (
+	idKey   = "id"
+	nameKey = "name"
+)
+const z = 20 * 10
 
 func main() {
 	fmt.Println("hello world")
@@ -31,4 +39,26 @@ func main() {
 	fmt.Println(weight)
 	fmt.Println(nickName)
 
+	unVarName := "unVar"
+	fmt.Println(unVarName)
+
+	test()
+
+	r1 := multiply(2, 5)
+	totalLen, _ := lenAndUpper("waldo")
+
+	fmt.Println(r1)
+	fmt.Println(totalLen)
+}
+
+func test() {
+	fmt.Println(c, idKey, nameKey, z)
+}
+
+func multiply(a int, b int) int {
+	return a * b
+}
+
+func lenAndUpper(name string) (int, string) {
+	return len(name), strings.ToUpper(name)
 }
