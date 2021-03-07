@@ -49,6 +49,19 @@ func main() {
 
 	fmt.Println(r1)
 	fmt.Println(totalLen)
+
+	copyX := []int{1, 2, 3, 4, 5}
+	fmt.Println("copyX : ", copyX)
+	copyY := make([]int, 4)
+	fmt.Println("copyY : ", copyY)
+	copyNum := copy(copyY, copyX)
+	fmt.Println("copyY : ", copyY, " copyNum : ", copyNum)
+
+	arrX := []int{1, 2, 3, 4}
+	fmt.Println(arrX)
+	num = copy(arrX[:3], arrX[1:])
+	fmt.Println(arrX, num)
+
 }
 
 func test() {
