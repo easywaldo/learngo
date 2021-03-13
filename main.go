@@ -62,6 +62,30 @@ func main() {
 	num = copy(arrX[:3], arrX[1:])
 	fmt.Println(arrX, num)
 
+	type firstPerson struct {
+		name string
+		age  int
+	}
+	f := firstPerson{
+		name: "Bob",
+		age:  50,
+	}
+	var g struct {
+		name string
+		age  int
+	}
+
+	// compiles -- can use = and == between identical named and anonymous structs
+	g = f
+	fmt.Println(f == g)
+	fmt.Println(f.name)
+
+	f.name = "waldo"
+	fmt.Println(f.name)
+	fmt.Println(g.name)
+
+	g.name = f.name
+	fmt.Println(f.name == g.name)
 }
 
 func test() {
