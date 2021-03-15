@@ -86,6 +86,62 @@ func main() {
 
 	g.name = f.name
 	fmt.Println(f.name == g.name)
+
+	countNumber := 10
+	if countNumber > 1 {
+		for i := 0; i < countNumber; i++ {
+			fmt.Println(i)
+		}
+
+		for countNumber >= 1 {
+			fmt.Println(countNumber)
+			countNumber -= 1
+		}
+
+		evenValues := []int{2, 4, 6, 8, 10}
+		for i, v := range evenValues {
+			fmt.Println(i, v)
+		}
+
+		for _, v := range evenValues {
+			fmt.Println(v)
+		}
+
+		uniqueNames := map[string]bool{"Apple": true, "Melon": true, "BuleBerry": false}
+		for k := range uniqueNames {
+			fmt.Println(k)
+		}
+	}
+
+	// earlier go version cause map's order problem
+	mapSample_1 := map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+	for i := 0; i < 3; i++ {
+		fmt.Println("Loop count ", i)
+		for k, v := range mapSample_1 {
+			fmt.Println(k, v)
+		}
+	}
+
+	// value is copied in for-range
+	evenValues := []int{4, 6, 8, 10, 12, 14}
+	for _, v := range evenValues {
+		v *= 2
+	}
+	fmt.Println(evenValues)
+
+	// for break
+	numbers := []int{1, 2, 3, 4}
+	for _, v := range numbers {
+		if v > 3 {
+			break
+		}
+		fmt.Println(v)
+	}
+
 }
 
 func test() {
