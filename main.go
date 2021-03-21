@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/cmplx"
+	"math/rand"
 	"strings"
 )
 
@@ -142,6 +143,7 @@ func main() {
 		fmt.Println(v)
 	}
 
+	fmt.Println("random number : ", rand.Intn(100))
 }
 
 func test() {
