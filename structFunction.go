@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
 	firstName := MyFunc(MyFuncOpts{
@@ -10,6 +13,12 @@ func main() {
 
 	resultNum := addTo(10, []int{1, 1, 1, 1, 1, 1, 1, 1}...)
 	fmt.Println(resultNum)
+
+	result, remainder, err := divAndRemainder(10, 0)
+	fmt.Println(result, remainder, err)
+
+	result, remainder, err = divAndRemainder(10, 2)
+	fmt.Println(result, remainder, err)
 }
 
 type MyFuncOpts struct {
@@ -28,4 +37,13 @@ func addTo(base int, vals ...int) int {
 		out += v
 	}
 	return out
+}
+
+func divAndRemainder(numerator int, denominator int) (result int, remainder int, err error) {
+	if denominator == 0 {
+		err = errors.New("cannot divide by zero")
+		return result, remainder, err
+	}
+	result, remainder = numerator/denominator, numerator%denominator
+	return result, remainder, err
 }
