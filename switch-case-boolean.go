@@ -19,4 +19,14 @@ loop:
 			fmt.Println(i, "is boring")
 		}
 	}
+
+	n := 10
+	switch n {
+	case 3:
+		fmt.Println("n is 3")
+	case 10:
+		fmt.Println("n is 10")
+	default:
+		fmt.Println("n is default")
+	}
 }
