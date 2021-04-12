@@ -18,4 +18,23 @@ func main() {
 	var errorVariable int64
 	errorVariable = *y
 	fmt.Println(errorVariable)
+
+	var f *int
+	failedUpdate(f)
+	fmt.Println(f)
+
+	z := 10
+	failedUpdate(&z)
+	fmt.Println(z)
+	update(&z)
+	fmt.Println(z)
+}
+
+func failedUpdate(g *int) {
+	x := 10
+	g = &x
+}
+
+func update(px *int) {
+	*px = 20
 }
