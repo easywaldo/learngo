@@ -5,8 +5,10 @@ import (
 	"strings"
 )
 
-func lengthAndUpper(name string) (int, string) {
-	return len(name), strings.ToUpper(name)
+func lengthAndUpper(name string) (length int, upperName string) {
+	length = len(name)
+	upperName = strings.ToUpper(name)
+	return
 }
 
 func main() {
