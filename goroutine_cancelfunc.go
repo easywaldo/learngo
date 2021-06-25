@@ -25,42 +25,13 @@ func countTo(max int) (<-chan int, func()) {
 	return ch, cancel
 }
 
-func process(number int) int {
-	return number + 1
-}
-
-func processChannel(ch chan int) []int {
-	const conc = 10
-	results := make(chan int, conc)
-	for i := 0; i < conc; i++ {
-		go func() {
-			v := <-ch
-			results <- process(v)
-		}()
-	}
-	var out []int
-	for i := 0; i < conc; i++ {
-		out = append(out, <-results)
-	}
-	return out
-}
-
 func main() {
-	// ch, cancel := countTo(100)
-	// for i := range ch {
-	// 	if i > 50 {
-	// 		break
-	// 	}
-	// 	fmt.Println(i)
-	// }
-	//cancel()
-
-	ch2 := make(chan int)
-	go func() {
-		ch2 <- 100
-		result := processChannel(ch2)
-		fmt.Println(result)
-	}()
-
-	//cancel()
+	ch, cancel := countTo(100)
+	for i := range ch {
+		if i > 50 {
+			break
+		}
+		fmt.Println(i)
+	}
+	cancel()
 }
